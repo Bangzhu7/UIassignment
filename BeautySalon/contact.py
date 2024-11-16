@@ -26,6 +26,7 @@ def ContactPage():
                     weight=ft.FontWeight.NORMAL,
                     font_family="Verdana",
                     color=ft.colors.GREY_800,
+                    width=700,
                 ),
                 ft.Text(
                     "Our Contact Details",
@@ -34,32 +35,45 @@ def ContactPage():
                     font_family="Verdana",
                     color=ft.colors.GREY_800,
                 ),
-                ft.Row(
-                    [
-                        ft.Icon(ft.icons.LOCATION_ON, color=ft.colors.PINK, size=20),
-                        ft.Text(
-                            "Address: Microkatu 1",
-                            size=16,
-                        ),
-                    ],
-                ),
-                ft.Row(
-                    [
-                        ft.Icon(ft.icons.PHONE, color=ft.colors.RED, size=20),
-                        ft.Text(
-                            "Phone: 041234566",
-                            size=16,
-                        ),
-                    ],
-                ),
-                ft.Row(
-                    [
-                        ft.Icon(ft.icons.EMAIL, color=ft.colors.BLUE, size=20),
-                        ft.Text(
-                            "Email: catbeauty@gmail.com",
-                            size=16,
-                        ),
-                    ],
+                ft.Container(
+                    content=ft.Column(
+                        [
+                            ft.Row(
+                                [
+                                    ft.Icon(ft.icons.LOCATION_ON, color=ft.colors.PINK, size=20),
+                                    ft.Text(
+                                        "Address: Microkatu 1",
+                                        size=16,
+                                        width=700,
+                                    ),
+                                    
+                                ],
+                            ),
+                            ft.Row(
+                                [
+                                    ft.Icon(ft.icons.PHONE, color=ft.colors.RED, size=20),
+                                    ft.Text(
+                                        "Phone: 041234566",
+                                        size=16,
+                                        width=700,
+                                    ),
+                                ],
+                            ),
+                            ft.Row(
+                                [
+                                    ft.Icon(ft.icons.EMAIL, color=ft.colors.BLUE, size=20),
+                                    ft.Text(
+                                        "Email: catbeauty@gmail.com",
+                                        size=16,
+                                        width=700,
+                                    ),
+                                ],
+                            )
+                        ],
+                        spacing=8,
+                    ) , 
+                    padding=ft.padding.only(left=15),  # Add left padding to match other text alignment
+                    width=700  # Match width of other text blocks      
                 ),
                  ft.Text(
                     "Business Hours",
@@ -68,15 +82,39 @@ def ContactPage():
                     font_family="Verdana",
                     color=ft.colors.GREY_800,
                 ),
-                ft.Text(
-                    """Monday – Friday: 9:00 AM – 7:00 PM
-                    Saturday: 10:00 AM – 6:00 PM
-                    Sunday: Closed""",
-                    size=16,
-                    weight=ft.FontWeight.NORMAL,
-                    font_family="Verdana",
-                    color=ft.colors.GREY_800,
+                ft.Container(
+                    ft.Column(
+                        [
+                            ft.Text(
+                                "Monday – Friday: 9:00 AM – 7:00 PM",
+                                size=16,
+                                weight=ft.FontWeight.NORMAL,
+                                font_family="Verdana",
+                                color=ft.colors.GREY_800,
+                                width=700,
+                            ),
+                            ft.Text(
+                                "Saturday: 10:00 AM – 6:00 PM",
+                                size=16,
+                                weight=ft.FontWeight.NORMAL,
+                                font_family="Verdana",
+                                color=ft.colors.GREY_800,
+                                width=700,
+                            ),
+                            ft.Text(
+                                "Sunday: Closed",
+                                size=16,
+                                weight=ft.FontWeight.NORMAL,
+                                font_family="Verdana",
+                                color=ft.colors.GREY_800,
+                                width=700,
+                            ),
+                        ],
+                        spacing = 8,
+                    ),
+                    width=700,
                 ),
+         
                 # Form Fields
                 ft.Row(
                     [
