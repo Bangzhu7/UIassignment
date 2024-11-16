@@ -10,6 +10,11 @@ def main(page: ft.Page):
     page.title = "Beauty Salon"
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.START
+    page.window_height = 800
+    page.window_width = 1200
+    page.padding = 0
+    page.spacing = 0
+    page.scroll = ft.ScrollMode.AUTO
     
     def route_change(e):
         page.views.clear()
@@ -20,8 +25,17 @@ def main(page: ft.Page):
                     "/",
                     [
                         make_nav_bar(),
-                        HomePage(page)
-                    ]
+                        ft.Container(
+                            content=ft.Column(
+                                controls=[HomePage(page)],
+                                scroll=ft.ScrollMode.AUTO,
+                                expand=True,
+                            ),
+                            expand=True,
+                        )
+                    ],
+                    spacing=0,
+                    padding=0,
                 )
             )
         elif page.route == "/about":
@@ -30,8 +44,17 @@ def main(page: ft.Page):
                     "/about",
                     [
                         make_nav_bar(),
-                        AboutPage()
-                    ]
+                        ft.Container(
+                            content=ft.Column(
+                                controls=[AboutPage()],
+                                scroll=ft.ScrollMode.AUTO,
+                                expand=True,
+                            ),
+                            expand=True,
+                        )
+                    ],
+                    spacing=0,
+                    padding=0,
                 )
             )
         elif page.route == "/service":
@@ -40,8 +63,17 @@ def main(page: ft.Page):
                     "/service",
                     [
                         make_nav_bar(),
-                        ServicePage(page)
-                    ]
+                        ft.Container(
+                            content=ft.Column(
+                                controls=[ServicePage(page)],
+                                scroll=ft.ScrollMode.AUTO,
+                                expand=True,
+                            ),
+                            expand=True,
+                        )
+                    ],
+                    spacing=0,
+                    padding=0,
                 )
             )
         elif page.route == "/contact":
@@ -50,8 +82,17 @@ def main(page: ft.Page):
                     "/contact",
                     [
                         make_nav_bar(),
-                        ContactPage()
-                    ]
+                        ft.Container(
+                            content=ft.Column(
+                                controls=[ContactPage()],
+                                scroll=ft.ScrollMode.AUTO,
+                                expand=True,
+                            ),
+                            expand=True,
+                        )
+                    ],
+                    spacing=0,
+                    padding=0
                 )
             )
 
@@ -61,8 +102,17 @@ def main(page: ft.Page):
                     "/book_calendar",
                     [
                         make_nav_bar(),
-                       book_calendarPage(page),
-                    ]
+                        ft.Container(
+                            content=ft.Column(
+                                controls=[book_calendarPage(page)],
+                                scroll=ft.ScrollMode.AUTO,
+                                expand=True,
+                            ),
+                            expand=True,
+                        )
+                    ],
+                    spacing=0,
+                    padding=0,
                 )
             )    
 
@@ -70,10 +120,19 @@ def main(page: ft.Page):
                     page.views.append(
                         ft.View(
                             "/clientdetails",
-                            [
-                            make_nav_bar(),
-                            clientdetails(page),
-                            ]
+                    [
+                        make_nav_bar(),
+                        ft.Container(
+                            content=ft.Column(
+                                controls=[clientdetails(page)],
+                                scroll=ft.ScrollMode.AUTO,
+                                expand=True,
+                            ),
+                            expand=True,
+                        )
+                    ],
+                    spacing=0,
+                    padding=0,
                         )
                     )    
         
