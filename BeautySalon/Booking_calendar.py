@@ -2,7 +2,7 @@ import flet as ft
 from datetime import datetime, timedelta
 import calendar
 
-def main(page: ft.Page):
+def book_calendarPage(page: ft.Page):
     # Initial setup
     page.route_data = {
         "service": "Wash & Dry",
@@ -267,94 +267,94 @@ def main(page: ft.Page):
         return time_slots_grid
 
     # Create main layout
-    main_content = ft.Row(
-        controls=[
-            # Calendar section
-            ft.Container(
-                content=ft.Column(
-                    controls=[
-                        ft.Text(
-                            "Select a Date",
-                            size=20,
-                            weight=ft.FontWeight.BOLD
-                        ),
-                        ft.Row(
-                            controls=[
-                                ft.Text(
-                                    "Timezone: Pacific Standard Time (PST)",
-                                    size=14
-                                ),
-                                ft.Icon(
-                                    ft.icons.ARROW_DROP_DOWN,
-                                    size=20
-                                ),
-                            ],
-                        ),
-                        create_calendar(),
-                    ],
-                    spacing=20,
-                ),
-                padding=20,
-            ),
-            
-            ft.VerticalDivider(width=1, color="#DEDEDE"),
-            
-            ft.Container(
-                content=ft.Column(
-                    controls=[
-                        ft.Text(
-                            "Select Time",
-                            size=20,
-                            weight=ft.FontWeight.BOLD
-                        ),
-                        create_time_slots(),
-                    ],
-                    spacing=20,
-                ),
-                padding=20,
-                width=300,
-            ),
-            
-            ft.VerticalDivider(width=1, color="#DEDEDE"),
-            
-            ft.Container(
-                content=ft.Column(
-                    controls=[
-                        ft.Text(
-                            "Booking Details",
-                            size=20,
-                            weight=ft.FontWeight.BOLD
-                        ),
-                        ft.Container(
-                            content=ft.Column(
-                                controls=[
-                                    ft.Text(booking_details["service"], size=16, weight=ft.FontWeight.W_500),
-                                    ft.Text(booking_details["duration"], size=14),
-                                    ft.Text(booking_details["location"], size=14),
-                                ],
-                                spacing=5,
+
+
+    return ft.Container(
+        content=ft.Row(
+            controls=[
+                # Calendar section
+                ft.Container(
+                    content=ft.Column(
+                        controls=[
+                            ft.Text(
+                                "Select a Date",
+                                size=20,
+                                weight=ft.FontWeight.BOLD
                             ),
-                            padding=ft.padding.only(top=10, bottom=20),
-                        ),
-                        ft.ElevatedButton(
-                            "Next",
-                            bgcolor="#5D4037",
-                            color="white",
-                            width=200,
-                            height=40,
-                            on_click=navigate_to_next_page
-                        ),
-                    ],
-                    spacing=10,
+                            ft.Row(
+                                controls=[
+                                    ft.Text(
+                                        "Timezone: Pacific Standard Time (PST)",
+                                        size=14
+                                    ),
+                                    ft.Icon(
+                                        ft.icons.ARROW_DROP_DOWN,
+                                        size=20
+                                    ),
+                                ],
+                            ),
+                            create_calendar(),
+                        ],
+                        spacing=20,
+                    ),
+                    padding=20,
                 ),
-                padding=20,
-                width=250,
-            ),
-        ],
-        spacing=0,
-    )
-
-    page.add(main_content)
-    page.update()
-
-ft.app(target=main)
+                
+                ft.VerticalDivider(width=1, color="#DEDEDE"),
+                
+                ft.Container(
+                    content=ft.Column(
+                        controls=[
+                            ft.Text(
+                                "Select Time",
+                                size=20,
+                                weight=ft.FontWeight.BOLD
+                            ),
+                            create_time_slots(),
+                        ],
+                        spacing=20,
+                    ),
+                    padding=20,
+                    width=300,
+                ),
+                
+                ft.VerticalDivider(width=1, color="#DEDEDE"),
+                
+                ft.Container(
+                    content=ft.Column(
+                        controls=[
+                            ft.Text(
+                                "Booking Details",
+                                size=20,
+                                weight=ft.FontWeight.BOLD
+                            ),
+                            ft.Container(
+                                content=ft.Column(
+                                    controls=[
+                                        ft.Text(booking_details["service"], size=16, weight=ft.FontWeight.W_500),
+                                        ft.Text(booking_details["duration"], size=14),
+                                        ft.Text(booking_details["location"], size=14),
+                                    ],
+                                    spacing=5,
+                                ),
+                                padding=ft.padding.only(top=10, bottom=20),
+                            ),
+                            ft.ElevatedButton(
+                                "Next",
+                                bgcolor="#5D4037",
+                                color="white",
+                                width=200,
+                                height=40,
+                                # on_click=navigate_to_next_page
+                                on_click=lambda _: page.go("/clientdetails")
+                            ),
+                        ],
+                        spacing=10,
+                    ),
+                    padding=20,
+                    width=250,
+                ),
+            ],
+            spacing=0,
+        )
+)
