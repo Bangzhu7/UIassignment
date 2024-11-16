@@ -3,6 +3,8 @@ from home import HomePage
 from about import AboutPage
 from service import ServicePage
 from contact import ContactPage
+from Booking_calendar import book_calendarPage
+from clientdetails import clientdetails
 
 def main(page: ft.Page):
     page.title = "Beauty Salon"
@@ -18,7 +20,7 @@ def main(page: ft.Page):
                     "/",
                     [
                         make_nav_bar(),
-                        HomePage()
+                        HomePage(page)
                     ]
                 )
             )
@@ -38,7 +40,7 @@ def main(page: ft.Page):
                     "/service",
                     [
                         make_nav_bar(),
-                        ServicePage()
+                        ServicePage(page)
                     ]
                 )
             )
@@ -52,6 +54,28 @@ def main(page: ft.Page):
                     ]
                 )
             )
+
+        elif page.route == "/book_calendar":
+            page.views.append(
+                ft.View(
+                    "/book_calendar",
+                    [
+                        make_nav_bar(),
+                       book_calendarPage(page),
+                    ]
+                )
+            )    
+
+        elif page.route == "/clientdetails":
+                    page.views.append(
+                        ft.View(
+                            "/clientdetails",
+                            [
+                            make_nav_bar(),
+                            clientdetails(page),
+                            ]
+                        )
+                    )    
         
         page.update()
     
