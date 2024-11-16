@@ -1,7 +1,7 @@
 import flet as ft
 import re
 
-def main(page: ft.Page):
+def clientdetails(page: ft.Page):
     page.title = "Booking Details"
     page.theme_mode = ft.ThemeMode.LIGHT
     page.padding = 20
@@ -237,9 +237,9 @@ def main(page: ft.Page):
     )
 
     # Layout
-    page.add(
-        back_button,
-        ft.Container(
+   
+
+    return  ft.Container(
             content=ft.Row([
                 # Left column - Form
                 ft.Column([
@@ -261,6 +261,4 @@ def main(page: ft.Page):
             ], alignment=ft.MainAxisAlignment.CENTER, spacing=40),
             margin=ft.margin.only(top=20),
         )
-    )
 
-ft.app(target=main)
