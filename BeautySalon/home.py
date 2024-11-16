@@ -1,8 +1,7 @@
 import flet as ft
 import os
 
-def HomePage():
-
+def HomePage(page):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     assets_path = os.path.join(current_dir, "assets")
     image_path = os.path.join(assets_path, "picture1.png")
@@ -54,6 +53,7 @@ def HomePage():
                         # Book appointment button
                         ft.TextButton(
                             text="Book an appointment",
+                            on_click=lambda _: page.go("/service"),
                             style=ft.ButtonStyle(
                                 color={
                                     "": ft.colors.WHITE,
