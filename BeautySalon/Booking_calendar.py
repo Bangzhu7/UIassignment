@@ -4,8 +4,9 @@ import calendar
 
 def book_calendarPage(page: ft.Page):
     # Initial setup
+    service_name = page.session.get("service_name") 
     page.route_data = {
-        "service": "Wash & Dry",
+        "service": service_name,
         "duration": "1 hr",
         "location": "San Francisco"
     }
@@ -72,6 +73,10 @@ def book_calendarPage(page: ft.Page):
         page.dialog = dialog
         dialog.open = True
         page.update()
+        page.session.set("booking_date", booking_details["date"])
+        page.session.set("booking_time", booking_details["time"])
+
+        page.go("/clientdetails") 
 
     def date_clicked(e, day):
         nonlocal selected_date
@@ -346,7 +351,8 @@ def book_calendarPage(page: ft.Page):
                                 width=200,
                                 height=40,
                                 # on_click=navigate_to_next_page
-                                on_click=lambda _: page.go("/clientdetails")
+                                # on_click=lambda _: page.go("/clientdetails")
+                                on_click=navigate_to_next_page
                             ),
                         ],
                         spacing=10,
