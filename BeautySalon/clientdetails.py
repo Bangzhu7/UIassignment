@@ -2,6 +2,13 @@ import flet as ft
 import re
 
 def clientdetails(page: ft.Page):
+    booking_date = page.session.get("booking_date")
+    booking_time = page.session.get("booking_time")
+    service_name = page.session.get("service_name") 
+    service_price = page.session.get("service_price") 
+    
+
+
     page.title = "Booking Details"
     page.theme_mode = ft.ThemeMode.LIGHT
     page.padding = 20
@@ -107,7 +114,7 @@ def clientdetails(page: ft.Page):
             ft.Container(
                 content=ft.Column([
                     ft.Text("Selected Service", size=16, color=ft.colors.GREY_700),
-                    ft.Text("Trim", size=24, weight=ft.FontWeight.BOLD),
+                    ft.Text(service_name, size=24, weight=ft.FontWeight.BOLD),
                     ft.Container(
                         content=ft.Row([
                             ft.Icon(ft.icons.ACCESS_TIME, color=ft.colors.GREY_700, size=16),
@@ -126,11 +133,11 @@ def clientdetails(page: ft.Page):
                     ft.Text("Date & Time", size=16, color=ft.colors.GREY_700),
                     ft.Row([
                         ft.Icon(ft.icons.CALENDAR_TODAY, color=ft.colors.GREY_700, size=16),
-                        ft.Text("November 22, 2024", weight=ft.FontWeight.BOLD),
+                        ft.Text(booking_date, weight=ft.FontWeight.BOLD),
                     ], spacing=5),
                     ft.Row([
                         ft.Icon(ft.icons.ACCESS_TIME, color=ft.colors.GREY_700, size=16),
-                        ft.Text("11:00 am", weight=ft.FontWeight.BOLD),
+                        ft.Text(booking_time, weight=ft.FontWeight.BOLD),
                     ], spacing=5),
                 ]),
                 padding=15,
@@ -172,7 +179,7 @@ def clientdetails(page: ft.Page):
                     ft.Text("Price Details", size=16, color=ft.colors.GREY_700),
                     ft.Row([
                         ft.Text("Total", size=16),
-                        ft.Text("$35", size=20, weight=ft.FontWeight.BOLD),
+                        ft.Text(service_price, size=20, weight=ft.FontWeight.BOLD),
                     ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
                 ]),
                 padding=15,
@@ -202,17 +209,47 @@ def clientdetails(page: ft.Page):
             
         return True
 
+    # def handle_add_to_cart(e):
+    #     if validate_form():
+    #         page.show_snack_bar(
+    #             ft.SnackBar(content=ft.Text("Added to cart!"), duration=3000)
+    #         )
+
+    # def handle_book_now(e):
+    #     if validate_form():
+    #         page.show_snack_bar(
+    #             ft.SnackBar(content=ft.Text("Booking confirmed!"), duration=3000)
+    #         )
+
     def handle_add_to_cart(e):
         if validate_form():
-            page.show_snack_bar(
-                ft.SnackBar(content=ft.Text("Added to cart!"), duration=3000)
+            page.dialog = ft.AlertDialog(
+                modal=True,
+                title=ft.Text("Added to Cart"),
+                content=ft.Text("The service has been added to your cart."),
+                actions=[
+                    ft.TextButton("OK", on_click=close_dialog),
+                ],
             )
+            page.dialog.open = True
+            page.update()
 
     def handle_book_now(e):
         if validate_form():
-            page.show_snack_bar(
-                ft.SnackBar(content=ft.Text("Booking confirmed!"), duration=3000)
+            page.dialog = ft.AlertDialog(
+                modal=True,
+                title=ft.Text("Booking Confirmed"),
+                content=ft.Text("Your booking has been confirmed."),
+                actions=[
+                    ft.TextButton("OK", on_click=close_dialog),
+                ],
             )
+            page.dialog.open = True
+            page.update()
+
+    def close_dialog(e):
+        page.dialog.open = False
+        page.update()
 
     add_to_cart_btn = ft.ElevatedButton(
         text="Add to Cart",
