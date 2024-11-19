@@ -9,10 +9,10 @@ def ServicePage(page):
 
     # Define service data
     services = [
-        {"name": "Wash & Dry", "duration": "1 hr", "price": "$100"},
-        {"name": "Trim", "duration": "1 hr", "price": "$35"},
-        {"name": "Cut & Blow Dry", "duration": "1 hr", "price": "$50"},
-        {"name": "Cut & Blow Dry", "duration": "1 hr", "price": "$50"},
+        {"name": "Wash & Dry", "duration": "1 hr", "price": "€100"},
+        {"name": "Trim", "duration": "1 hr", "price": "€35"},
+        {"name": "Cut & Blow Dry", "duration": "1 hr", "price": "€50"},
+        {"name": "Bridal Hair", "duration": "1 hr", "price": "€200"},
     ]
 
     # Title text
@@ -35,8 +35,16 @@ def ServicePage(page):
             bgcolor=ft.colors.BLACK,
             color=ft.colors.WHITE,
             # on_click=lambda e, service=service: print(f"Booked {service['name']}"),
-            on_click=lambda _: page.go("/book_calendar"),
+            # on_click=lambda _: page.go("/book_calendar"),
+            on_click=lambda e, s=service: book_service(e, page, s),  # Pass service to the function
         )
+        
+        def book_service(e, page, service):
+            # Store the service name in the session
+            page.session.set("service_name", service["name"])
+            page.session.set("service_price", service["price"])
+            page.go("/book_calendar")
+            
 
         # Row layout for each service
         row = ft.Row(
