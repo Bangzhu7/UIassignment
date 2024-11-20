@@ -11,8 +11,8 @@ def HomePage(page):
             # Background image with full path
             ft.Image(
                 src=image_path,
-                width=1920,  
-                height=1080,  
+                # width=1920,  
+                # height=1080,  
                 fit=ft.ImageFit.COVER,  
                 repeat=ft.ImageRepeat.NO_REPEAT
             ),
@@ -75,6 +75,6 @@ def HomePage(page):
                 alignment=ft.alignment.top_right,
             ),
         ],
-        width=1920,
-        height=1080,
+        # width=1920,
+        # height=1080,
     )
