@@ -10,8 +10,8 @@ def main(page: ft.Page):
     page.title = "Beauty Salon"
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.START
-    page.window_height = 800
-    page.window_width = 1200
+    page.window.height = 800
+    page.window.width = 1200
     page.padding = 0
     page.spacing = 0
     page.scroll = ft.ScrollMode.AUTO
@@ -84,7 +84,7 @@ def main(page: ft.Page):
                         make_nav_bar(),
                         ft.Container(
                             content=ft.Column(
-                                controls=[ContactPage()],
+                                controls=[ContactPage(page)],
                                 scroll=ft.ScrollMode.AUTO,
                                 expand=True,
                             ),
