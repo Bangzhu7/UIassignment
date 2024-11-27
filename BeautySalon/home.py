@@ -4,7 +4,7 @@ import os
 def HomePage(page):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     assets_path = os.path.join(current_dir, "assets")
-    image_path = os.path.join(assets_path, "picture1.png")
+    image_path = os.path.join(assets_path, "beauty.jpeg")
     
     return ft.Stack(
         [

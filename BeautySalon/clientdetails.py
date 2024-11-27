@@ -151,7 +151,7 @@ def clientdetails(page: ft.Page):
                     ft.Text("Location", size=16, color=ft.colors.GREY_700),
                     ft.Row([
                         ft.Icon(ft.icons.LOCATION_ON, color=ft.colors.GREY_700, size=16),
-                        ft.Text("San Francisco", weight=ft.FontWeight.BOLD),
+                        ft.Text("Kuopio", weight=ft.FontWeight.BOLD),
                     ], spacing=5),
                 ]),
                 padding=15,

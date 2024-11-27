@@ -8,7 +8,7 @@ def book_calendarPage(page: ft.Page):
     page.route_data = {
         "service": service_name,
         "duration": "1 hr",
-        "location": "San Francisco"
+        "location": "Kuopio"
     }
     
     page.title = "Booking Application"
@@ -289,13 +289,13 @@ def book_calendarPage(page: ft.Page):
                             ft.Row(
                                 controls=[
                                     ft.Text(
-                                        "Timezone: Pacific Standard Time (PST)",
+                                        "Timezone: Eastern European Standard Time (GMT+2)",
                                         size=14
                                     ),
-                                    ft.Icon(
-                                        ft.icons.ARROW_DROP_DOWN,
-                                        size=20
-                                    ),
+                                    # ft.Icon(
+                                    #     ft.icons.ARROW_DROP_DOWN,
+                                    #     size=20
+                                    # ),
                                 ],
                             ),
                             create_calendar(),

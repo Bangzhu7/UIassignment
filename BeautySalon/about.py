@@ -4,7 +4,7 @@ import os
 def AboutPage():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     assets_path = os.path.join(current_dir, "assets")
-    image_path = os.path.join(assets_path, "elegant_cat.jfif")
+    image_path = os.path.join(assets_path, "picture1.png")
 
     return ft.Container(
         content=ft.Column(
@@ -16,14 +16,14 @@ def AboutPage():
                     text_align=ft.TextAlign.CENTER
                 ),
                 ft.Text(
-                    "Welcome to Cat Salon",
+                    "Welcome to Beuty Salon",
                     size=20,
                     weight=ft.FontWeight.BOLD,
                     font_family="Verdana",
                     color=ft.colors.GREY_700,
                 ),
                 ft.Text(
-                    "At Cat Salon, we believe that beauty is more than skin deep—it's about confidence, self-care, and celebrating your unique style. Our mission is to provide exceptional beauty and wellness services in a relaxing, luxurious environment.",
+                    "At Beauty Salon, we believe that beauty is more than skin deep—it's about confidence, self-care, and celebrating your unique style. Our mission is to provide exceptional beauty and wellness services in a relaxing, luxurious environment.",
                     size=16,
                     weight=ft.FontWeight.NORMAL,
                     font_family="Verdana",
@@ -38,7 +38,7 @@ def AboutPage():
                     color=ft.colors.GREY_700,
                 ),    
                 ft.Text(
-                    "Founded in 2024, Cat Salon has been a trusted destination for Kuopio residents seeking expert care for hair, skin, and nails. With a team of highly trained professionals passionate about their craft, we take pride in delivering personalized treatments tailored to meet your needs.",
+                    "Founded in 2024, Beauty Salon has been a trusted destination for Kuopio residents seeking expert care for hair, skin, and nails. With a team of highly trained professionals passionate about their craft, we take pride in delivering personalized treatments tailored to meet your needs.",
                     size=16,
                     weight=ft.FontWeight.NORMAL,
                     font_family="Verdana",
@@ -121,7 +121,7 @@ def AboutPage():
                     color=ft.colors.GREY_700,
                 ),
                 ft.Text(
-                    "Whether you're here for a quick touch-up or a complete makeover, our goal is to leave you glowing with confidence. Visit [Salon Name] and experience the art of beauty done right.",
+                    "Whether you're here for a quick touch-up or a complete makeover, our goal is to leave you glowing with confidence. Visit Beauty Salon and experience the art of beauty done right.",
                     size=16,
                     font_family="Verdana",
                     color=ft.colors.GREY_700,
